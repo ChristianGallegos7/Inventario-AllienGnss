@@ -1,20 +1,24 @@
 <div class="imagen">
-    <mat-card class="card">
-        <mat-card-title class="card-title">Iniciar Sesión</mat-card-title>
-        <mat-form-field>
-            <mat-label>Usuario</mat-label>
-            <input matInput placeholder="Ex. John Doe">
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>Contraseña</mat-label>
-            <input matInput placeholder="******">
-        </mat-form-field>
-        <button color="primary" mat-raised-button>
-            <mat-icon>login</mat-icon>
-            Iniciar Sesión
-        </button>
-        <mat-card-actions class="card-actions">
-            <button mat-button color="primary">¿Olvidaste tu contraseña?</button>
-        </mat-card-actions>
-    </mat-card>
+    <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+        <mat-card class="card">
+            <mat-card-title class="card-title">
+                <img src="assets/logo.png" alt="Logo Allien" class="card-logo">
+            </mat-card-title>
+            <mat-form-field>
+                <mat-label>Usuario</mat-label>
+                <input matInput placeholder="Ex. John Doe" formControlName="usuario">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Contraseña</mat-label>
+                <input matInput placeholder="******" formControlName="clave" type="password">
+            </mat-form-field>
+            <button mat-raised-button color="primary" class="login-button" type="submit">
+                <mat-icon class="login-icon">login</mat-icon>
+                <span>Iniciar Sesión</span>
+            </button>
+            <mat-card-actions class="card-actions">
+                <button mat-button color="primary">¿Olvidaste tu contraseña?</button>
+            </mat-card-actions>
+        </mat-card>
+    </form>
 </div>

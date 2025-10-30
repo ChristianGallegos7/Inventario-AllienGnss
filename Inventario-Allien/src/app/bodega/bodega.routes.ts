@@ -1,9 +1,21 @@
 import { Routes } from "@angular/router";
-import { BodegaComponent } from "./bodega.component";
+import { BodegaLayoutComponent } from "./bodega-layout/bodega-layout.component";
+import { DashboardComponent } from "./components/dashboard/dashboard.component";
 
 export const bodegaRoutes: Routes = [
     {
         path: '',
-        component: BodegaComponent
+        component: BodegaLayoutComponent,
+        children: [
+            {
+                path: 'dashboard',
+                component: DashboardComponent
+            },
+            {
+                path: '',
+                redirectTo: 'dashboard',
+                pathMatch: 'full'
+            }
+        ]
     }
 ]

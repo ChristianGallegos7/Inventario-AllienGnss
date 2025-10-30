@@ -12,6 +12,10 @@ export const routes: Routes = [
         pathMatch: 'full'
     },
     {
+        path: 'bodega',
+        loadChildren: () => import("./bodega/bodega.routes").then(m => m.bodegaRoutes)
+    },
+    {
         path: '**',
         redirectTo: 'login'
     }
